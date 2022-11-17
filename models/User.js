@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+//----------------------------------------------------------------------
 
 const UserSchema = new mongoose.Schema({
   name: {
@@ -25,15 +26,18 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
+//------------------------------------------
 UserSchema.pre("save", async function () {
   const salt = await bcryptjs.genSalt(11);
   this.password = await bcryptjs.hash(this.password, salt);
 });
 
+//------------------------------------------
 UserSchema.methods.getName = function () {
   return this.name;
 };
 
+//------------------------------------------
 UserSchema.methods.createJWT = function () {
   return jwt.sign(
     { userId: this._id, name: this.name },
@@ -42,9 +46,16 @@ UserSchema.methods.createJWT = function () {
   );
 };
 
+//------------------------------------------
 UserSchema.methods.comparePassword = function (password) {
-  const isMatched = bcryptjs.compare(password, this.password);
-  return isMatched;
+  return bcryptjs.compare(password, this.password);
 };
 
+/* OK */
+// UserSchema.methods.comparePassword = function (password) {
+//   const isMatched = bcryptjs.compare(password, this.password);
+//   return isMatched;
+// };
+
+//------------------------------------------
 module.exports = mongoose.model("User", UserSchema);
