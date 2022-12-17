@@ -10,8 +10,8 @@ class ServerError extends CustomAPIError {
 }
 
 //----------------------
-const generateServerError = (errorMessage, errorStatusCode) => {
-  return new ServerError(errorMessage, errorStatusCode);
+const generateServerError = (errorMessage) => {
+  return new ServerError(errorMessage);
 };
 
 //----------------------

@@ -29,7 +29,7 @@ app.use(
     windowMs: 5000,
     max: 200,
     message: { code: 429, message: "Too many connection; Try later !" },
-  })
+  }),
 );
 
 app.use(express.json());

@@ -42,13 +42,13 @@ UserSchema.methods.createJWT = function () {
   return jwt.sign(
     { userId: this._id, name: this.name },
     process.env.JWT_SECRET,
-    { expiresIn: process.env.JWT_LIFETIME }
+    { expiresIn: process.env.JWT_LIFETIME },
   );
 };
 
 //------------------------------------------
-UserSchema.methods.comparePassword = function (password) {
-  return bcryptjs.compare(password, this.password);
+UserSchema.methods.comparePassword = async function (password) {
+  return await bcryptjs.compare(password, this.password);
 };
 
 /* OK */

@@ -10,8 +10,8 @@ class BadRequestError extends CustomAPIError {
 }
 
 //----------------------
-const generateBadRequestError = (errorMessage, errorStatusCode) => {
-  return new BadRequestError(errorMessage, errorStatusCode);
+const generateBadRequestError = (errorMessage) => {
+  return new BadRequestError(errorMessage);
 };
 
 //----------------------

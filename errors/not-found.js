@@ -10,8 +10,8 @@ class NotFoundError extends CustomAPIError {
 }
 
 //----------------------
-const generateNotFoundError = (errorMessage, errorStatusCode) => {
-  return new NotFoundError(errorMessage, errorStatusCode);
+const generateNotFoundError = (errorMessage) => {
+  return new NotFoundError(errorMessage);
 };
 
 //----------------------

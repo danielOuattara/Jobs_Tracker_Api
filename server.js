@@ -5,7 +5,7 @@ const connectDB = require("./db/connect");
 
 //------------------------------------------------------------
 const normalizePort = (val) => {
-  // normalizePort() :  renvoie un port valide, qu'il soit
+  // normalizePort(): renvoie un port valide, qu'il soit
   // fourni sous la forme d'un numéro ou d'une chaîne ;
   const port = parseInt(val, 10);
 
@@ -60,7 +60,7 @@ server.on("listening", () => {
 });
 
 //-----------------------------------------------------------------------
-const databseName = process.env.MONGO_URI.split("/")[3].split("?")[0];
+const databseName = process.env.MONGO_DATABASE_NAME;
 
 connectDB(process.env.MONGO_URI)
   .then(() => {

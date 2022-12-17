@@ -10,8 +10,8 @@ class UnauthenticatedError extends CustomAPIError {
 }
 
 //----------------------
-const generateUnauthenticatedError = (errorMessage, errorStatusCode) => {
-  return new UnauthenticatedError(errorMessage, errorStatusCode);
+const generateUnauthenticatedError = (errorMessage) => {
+  return new UnauthenticatedError(errorMessage);
 };
 
 //----------------------
